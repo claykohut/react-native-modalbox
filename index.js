@@ -419,9 +419,12 @@ var ModalBox = createReactClass({
   renderContent() {
     var size    = {height: this.state.containerHeight, width: this.state.containerWidth};
     var offsetX = (this.state.containerWidth - this.state.width) / 2;
+    
+    const pointerEvents = this.props.pointerEvents || 'auto';
 
     return (
       <Animated.View
+        pointerEvents={pointerEvents}
         onLayout={this.onViewLayout}
         style={[styles.wrapper, size, this.props.style, {transform: [{translateY: this.state.position}, {translateX: offsetX}]} ]}
         {...this.state.pan.panHandlers}>
